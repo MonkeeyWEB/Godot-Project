@@ -1,5 +1,14 @@
-[gd_scene format=3 uid="uid://bw7hpfcvakht8"]
+[gd_scene load_steps=3 format=3 uid="uid://bw7hpfcvakht8"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ggcsi"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_abnnk"]
 
 [node name="Node3D" type="Node3D"]
 
-[node name="Poo" type="Node" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_ggcsi")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.118701, 0.383429, -0.90001)
+mesh = SubResource("QuadMesh_abnnk")
