@@ -1,14 +1,46 @@
-[gd_scene load_steps=3 format=3 uid="uid://bw7hpfcvakht8"]
+[gd_scene load_steps=5 format=3 uid="uid://bw7hpfcvakht8"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ggcsi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bucad"]
+albedo_color = Color(0.199925, 0.152993, 0.0941133, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ndqv"]
+albedo_color = Color(0.513484, 0.66223, 0.599014, 1)
 
 [sub_resource type="QuadMesh" id="QuadMesh_abnnk"]
 
 [node name="Node3D" type="Node3D"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="base 3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_ggcsi")
+surface_material_override/0 = SubResource("StandardMaterial3D_bucad")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.118701, 0.383429, -0.90001)
+[node name="Mur1" type="MeshInstance3D" parent="base 3D"]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, 0.00222967, 0.49675, -0.990964)
+material_override = SubResource("StandardMaterial3D_7ndqv")
 mesh = SubResource("QuadMesh_abnnk")
+skeleton = NodePath("../..")
+
+[node name="Mur2" type="MeshInstance3D" parent="base 3D"]
+transform = Transform3D(2, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0.00222967, 0.49675, 0.988022)
+material_override = SubResource("StandardMaterial3D_7ndqv")
+mesh = SubResource("QuadMesh_abnnk")
+skeleton = NodePath("../..")
+
+[node name="Mur3" type="MeshInstance3D" parent="base 3D"]
+transform = Transform3D(-8.74228e-08, 0, -1, 0, 1, 0, 2, 0, -4.37114e-08, 0.987706, 0.49675, 0.00184917)
+material_override = SubResource("StandardMaterial3D_7ndqv")
+mesh = SubResource("QuadMesh_abnnk")
+skeleton = NodePath("../..")
+
+[node name="Mur4" type="MeshInstance3D" parent="base 3D"]
+transform = Transform3D(-8.74228e-08, 0, 1, 0, 1, 0, -2, 0, -4.37114e-08, -0.989807, 0.49675, 0.00184917)
+material_override = SubResource("StandardMaterial3D_7ndqv")
+mesh = SubResource("QuadMesh_abnnk")
+skeleton = NodePath("../..")
+
+[node name="Plafond" type="MeshInstance3D" parent="base 3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.982166, 0)
+mesh = SubResource("PlaneMesh_ggcsi")
+surface_material_override/0 = SubResource("StandardMaterial3D_bucad")
