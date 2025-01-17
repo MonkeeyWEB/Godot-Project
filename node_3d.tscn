@@ -1,4 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bw7hpfcvakht8"]
+[gd_scene load_steps=7 format=3 uid="uid://bw7hpfcvakht8"]
+
+[ext_resource type="PackedScene" uid="uid://bgkc0hu54tuoo" path="res://player.tscn" id="1_rltks"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_77hj7"]
+albedo_color = Color(0.331098, 0.247018, 0.109262, 1)
+emission_enabled = true
+emission = Color(0.477243, 0.610111, 0.486545, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ggcsi"]
 
@@ -7,12 +14,20 @@ albedo_color = Color(0.199925, 0.152993, 0.0941133, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ndqv"]
 albedo_color = Color(0.513484, 0.66223, 0.599014, 1)
+emission_enabled = true
+emission = Color(0.200176, 0.359718, 0.339492, 1)
 
 [sub_resource type="QuadMesh" id="QuadMesh_abnnk"]
 
 [node name="Node3D" type="Node3D"]
 
+[node name="Player" parent="." instance=ExtResource("1_rltks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.42362, 1.69199, 2.80848)
+
 [node name="base 3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 3, 0, 0, 0, 10, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_77hj7")
+gi_lightmap_scale = 2
 mesh = SubResource("PlaneMesh_ggcsi")
 surface_material_override/0 = SubResource("StandardMaterial3D_bucad")
 
@@ -44,3 +59,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.982166, 0)
 mesh = SubResource("PlaneMesh_ggcsi")
 surface_material_override/0 = SubResource("StandardMaterial3D_bucad")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.923773, 0.382941, 0, -0.382941, 0.923773, -3.22097, 8.76138, 15.4814)
+light_energy = 5.0
