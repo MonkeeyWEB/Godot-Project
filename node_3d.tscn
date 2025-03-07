@@ -58,7 +58,7 @@ skeleton = NodePath("../..")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.0619886, 0.998077, 0, -0.998077, -0.0619886, -3.22097, 9.32032, -1.17369)
-light_energy = 5.0
+light_energy = 16.0
 
 [node name="global colision" type="CSGCombiner3D" parent="."]
 use_collision = true
@@ -91,7 +91,5 @@ script = ExtResource("2_c1g2k")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0472138, -0.139036, 0.223715)
 stream = ExtResource("2_twlm6")
 volume_db = 24.286
-autoplay = true
-max_distance = 10.0
 
 [connection signal="finished" from="CSGBox3D/AudioStreamPlayer3D" to="CSGBox3D" method="_on_audio_stream_player_3d_finished"]
