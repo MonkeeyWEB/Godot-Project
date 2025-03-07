@@ -1,9 +1,14 @@
 extends CharacterBody3D
+@onready var camera_3d: Camera3D = $Camera3D
+const CAMERA_SENS = 0.005
 
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
+func _ready() -> void:
+	#Initialise le mode de caméra à la Premiere Personne
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -26,3 +31,14 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+
+#Camera
+func _input(event):
+	if event is InputEventMouseMotion:
+		print("y : ",event.relative.x * CAMERA_SENS)
+		print("x : ",event.relative.y * CAMERA_SENS)
+		#Horizontal
+		rotation.y -= event.relative.x * CAMERA_SENS
+		#Vertical
+		#rotation.x -= event.relative.y * CAMERA_SENS
+		
