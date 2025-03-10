@@ -1,6 +1,11 @@
 extends CharacterBody3D
+
 @onready var camera_3d: Camera3D = $Camera3D
 const CAMERA_SENS = 0.005
+
+@onready var audio_stream_player_3d: AudioStreamPlayer3D = $CSGBox3D/AudioStreamPlayer3D
+@onready var bruits_pas: AudioStreamPlayer3D = $"bruits pas"
+
 
 
 const SPEED = 5.0
@@ -18,12 +23,15 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	var input_dir := Input.get_vector("gauche", "droite", "avancer", "reculer")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
+		if not bruits_pas.playing:
+			bruits_pas.play()
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
 	else:

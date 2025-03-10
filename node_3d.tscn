@@ -1,6 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bw7hpfcvakht8"]
+[gd_scene load_steps=9 format=3 uid="uid://bw7hpfcvakht8"]
 
 [ext_resource type="PackedScene" uid="uid://bgkc0hu54tuoo" path="res://player.tscn" id="1_rltks"]
+[ext_resource type="Script" path="res://csg_box_3d.gd" id="2_c1g2k"]
+[ext_resource type="AudioStream" uid="uid://bghwhoeafxupm" path="res://breath-in-242641.mp3" id="2_twlm6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_77hj7"]
 albedo_color = Color(0.331098, 0.247018, 0.109262, 1)
@@ -56,7 +58,7 @@ skeleton = NodePath("../..")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.0619886, 0.998077, 0, -0.998077, -0.0619886, -3.22097, 9.32032, -1.17369)
-light_energy = 5.0
+light_energy = 16.0
 
 [node name="global colision" type="CSGCombiner3D" parent="."]
 use_collision = true
@@ -81,5 +83,13 @@ size = Vector3(0.214722, 14.4119, 20.2358)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.97504, 7.14948, -0.311876)
 size = Vector3(0.214722, 14.4202, 20.8408)
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.25447, 1.54157, 5.71529)
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32813, 0)
+script = ExtResource("2_c1g2k")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0472138, -0.139036, 0.223715)
+stream = ExtResource("2_twlm6")
+volume_db = 24.286
+
+[connection signal="finished" from="CSGBox3D/AudioStreamPlayer3D" to="CSGBox3D" method="_on_audio_stream_player_3d_finished"]
