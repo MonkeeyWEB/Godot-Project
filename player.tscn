@@ -11,7 +11,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.58624, 0)
 script = ExtResource("1_ux3au")
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.536976, 0.221873)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0395595, 0.536976, -0.485182)
 fov = 60.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
