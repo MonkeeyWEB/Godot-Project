@@ -25,7 +25,7 @@ emission = Color(0.200176, 0.359718, 0.339492, 1)
 [node name="Node3D" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_rltks")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.00249, 3.99073, 2.80848)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.00249, -3.76143, 2.80848)
 
 [node name="base 3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, 3, 0, 0, 0, 10, 0, 0, 0)
@@ -85,15 +85,19 @@ size = Vector3(0.214722, 14.4119, 20.2358)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.97504, 7.14948, -0.311876)
 size = Vector3(0.214722, 14.4202, 20.8408)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
+[node name="audio box" type="CSGBox3D" parent="."]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.945488, 0)
 use_collision = true
 script = ExtResource("2_c1g2k")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="CSGBox3D"]
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="audio box"]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -0.13444, -0.139036, -0.050539)
 stream = ExtResource("2_twlm6")
-volume_db = 24.286
+unit_size = 1.0
+max_db = 0.1
+autoplay = true
+max_distance = 1.5
+panning_strength = 0.2
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 
@@ -102,4 +106,4 @@ mesh = SubResource("BoxMesh_dsqnt")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 
-[connection signal="finished" from="CSGBox3D/AudioStreamPlayer3D" to="CSGBox3D" method="_on_audio_stream_player_3d_finished"]
+[connection signal="finished" from="audio box/AudioStreamPlayer3D" to="audio box" method="_on_audio_stream_player_3d_finished"]

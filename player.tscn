@@ -20,3 +20,4 @@ volume_db = 50.0
 max_distance = 73.14
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.446793)
