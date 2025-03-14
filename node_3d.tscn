@@ -100,6 +100,7 @@ max_distance = 1.5
 panning_strength = 0.2
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.48139, 0.919412, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
 mesh = SubResource("BoxMesh_dsqnt")

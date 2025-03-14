@@ -40,6 +40,15 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	
+
+	# pick-up
+
+	
+var picked0bject
+func pick_up(object):
+	object.reparent(self)
+	#object.global_position = %CarryObjectMarker.global_position
+	
 	#Camera
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -49,3 +58,8 @@ func _input(event):
 		rotation.y -= event.relative.x * CAMERA_SENS
 		#Vertical
 		#rotation.x -= event.relative.y * CAMERA_SENS
+		
+
+	if event.is_action_pressed("interaction") and picked0bject:
+		picked0bject.reparent(get_tree().current_scene)
+		picked0bject = null
