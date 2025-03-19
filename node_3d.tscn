@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bw7hpfcvakht8"]
+[gd_scene load_steps=11 format=3 uid="uid://bw7hpfcvakht8"]
 
 [ext_resource type="PackedScene" uid="uid://bgkc0hu54tuoo" path="res://player.tscn" id="1_rltks"]
 [ext_resource type="Script" path="res://csg_box_3d.gd" id="2_c1g2k"]
@@ -21,6 +21,8 @@ emission = Color(0.200176, 0.359718, 0.339492, 1)
 [sub_resource type="QuadMesh" id="QuadMesh_abnnk"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_dsqnt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vcmrj"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -57,10 +59,6 @@ transform = Transform3D(-8.74228e-08, 0, 1, 0, 5, 0, -2, 0, -4.37114e-08, -0.982
 material_override = SubResource("StandardMaterial3D_7ndqv")
 mesh = SubResource("QuadMesh_abnnk")
 skeleton = NodePath("../..")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.0619886, 0.998077, 0, -0.998077, -0.0619886, -3.22097, 9.32032, -1.17369)
-light_energy = 16.0
 
 [node name="global colision" type="CSGCombiner3D" parent="."]
 use_collision = true
@@ -100,11 +98,12 @@ max_distance = 1.5
 panning_strength = 0.2
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.48139, 0.919412, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.55814, 1.96072, -2.11716)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
 mesh = SubResource("BoxMesh_dsqnt")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("BoxShape3D_vcmrj")
 
 [connection signal="finished" from="audio box/AudioStreamPlayer3D" to="audio box" method="_on_audio_stream_player_3d_finished"]
