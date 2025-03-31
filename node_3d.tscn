@@ -1,15 +1,19 @@
-[gd_scene load_steps=11 format=3 uid="uid://bw7hpfcvakht8"]
+[gd_scene load_steps=16 format=3 uid="uid://bw7hpfcvakht8"]
 
 [ext_resource type="PackedScene" uid="uid://bgkc0hu54tuoo" path="res://player.tscn" id="1_rltks"]
 [ext_resource type="Script" path="res://csg_box_3d.gd" id="2_c1g2k"]
 [ext_resource type="AudioStream" uid="uid://bghwhoeafxupm" path="res://breath-in-242641.mp3" id="2_twlm6"]
+[ext_resource type="Script" path="res://static_body_3d.gd" id="4_bwoes"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_77hj7"]
 albedo_color = Color(0.331098, 0.247018, 0.109262, 1)
 emission_enabled = true
 emission = Color(0.477243, 0.610111, 0.486545, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ri4kk"]
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_ggcsi"]
+material = SubResource("StandardMaterial3D_ri4kk")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kaa5j"]
 
@@ -23,6 +27,12 @@ emission = Color(0.200176, 0.359718, 0.339492, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_dsqnt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vcmrj"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ssfp7"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_a5a2v"]
+
+[sub_resource type="Skin" id="Skin_sa10h"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -105,5 +115,17 @@ mesh = SubResource("BoxMesh_dsqnt")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 shape = SubResource("BoxShape3D_vcmrj")
+
+[node name="ballon" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.04222, 1.06627, 0)
+script = ExtResource("4_bwoes")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ballon"]
+shape = SubResource("SphereShape3D_ssfp7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ballon"]
+mesh = SubResource("SphereMesh_a5a2v")
+skin = SubResource("Skin_sa10h")
+skeleton = NodePath("../CollisionShape3D")
 
 [connection signal="finished" from="audio box/AudioStreamPlayer3D" to="audio box" method="_on_audio_stream_player_3d_finished"]

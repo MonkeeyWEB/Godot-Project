@@ -1,8 +1,11 @@
 extends CharacterBody3D
+
+signal interact_object
+
 @onready var audio_stream_player_3d: AudioStreamPlayer3D = $CSGBox3D/AudioStreamPlayer3D
 @onready var bruits_pas: AudioStreamPlayer3D = $"bruits pas"
 @onready var camera_3d: Camera3D = $Camera3D
-
+@onready var hand: RayCast3D = $Camera3D/hand
 
 
 const SPEED = 5.0
@@ -11,6 +14,7 @@ const CAMERA_SENS = 0.005
 
 func _ready() -> void:
 	# Initialise le mode de camera à la première personne
+	add_to_group("player")
 	Input .mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 
@@ -46,10 +50,20 @@ func _physics_process(delta: float) -> void:
 	
 var picked0bject
 func pick_up(object):
+	
 	object.reparent(self)
 	#object.global_position = %CarryObjectMarker.global_position
 	
-	#Camera
+	await get_tree().create_timer(0.1).timeout
+	picked0bject= object
+	
+	
+func _process(delta):
+	if hand.is_colliding():
+		var collider = hand.get_collider()
+		interact_object.emit(collider)
+	else : interact_object.emit(null)
+		
 func _input(event):
 	if event is InputEventMouseMotion:
 		print("y : ",event.relative.x * CAMERA_SENS)
@@ -58,7 +72,10 @@ func _input(event):
 		rotation.y -= event.relative.x * CAMERA_SENS
 		#Vertical
 		#rotation.x -= event.relative.y * CAMERA_SENS
-		
+	if event.is_action_pressed("interaction") and picked0bject:
+		picked0bject.reparent(get_tree().current_scene)
+		picked0bject=null 
+		#si on appuie sur la touche interaction et qu'un objet est attrapé, on le remet dans la scene et on l'oublie de notre inventaire 
 
 	if event.is_action_pressed("interaction") and picked0bject:
 		picked0bject.reparent(get_tree().current_scene)
