@@ -27,10 +27,12 @@ transform = Transform3D(1, 0, 0, 0, 0.995878, 0.0907021, 0, -0.0907021, 0.995878
 [node name="hand" type="RayCast3D" parent="CharacterBody3D/Camera3D"]
 transform = Transform3D(0.983562, 0.180571, -7.89299e-09, -6.12027e-16, -4.37114e-08, -1, -0.180571, 0.983562, -4.29929e-08, -0.237371, -0.131398, 0.222469)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 0.993175, 0.116636, 0, -0.116636, 0.993175, 0, 0, 0)
-light_color = Color(0.766415, 0.798313, 0.72185, 1)
-light_energy = 2.0
+[node name="SpotLight3D" type="SpotLight3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.0305559, 0.999533, 0, -0.999533, 0.0305559, 0, 16.5129, 0)
+light_color = Color(0.496741, 0.480343, 0.449007, 1)
+light_indirect_energy = 3.717
+spot_range = 25.1993
+spot_angle = 23.9062
 
 [node name="poulet" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 3.39342e-16, 0, 1, 0, 3.39342e-16, 0, 1, 2.98023e-08, 4.58008, 1.49012e-08)
