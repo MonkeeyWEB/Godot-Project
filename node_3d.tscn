@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bw7hpfcvakht8"]
+[gd_scene load_steps=14 format=3 uid="uid://bw7hpfcvakht8"]
 
 [ext_resource type="PackedScene" uid="uid://bgkc0hu54tuoo" path="res://player.tscn" id="1_rltks"]
 [ext_resource type="Script" path="res://csg_box_3d.gd" id="2_c1g2k"]
@@ -26,15 +26,6 @@ size = Vector2(5, 5)
 [sub_resource type="SphereMesh" id="SphereMesh_a5a2v"]
 
 [sub_resource type="Skin" id="Skin_sa10h"]
-
-[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_i81nc"]
-
-[sub_resource type="Sky" id="Sky_q5htx"]
-sky_material = SubResource("PhysicalSkyMaterial_i81nc")
-
-[sub_resource type="Environment" id="Environment_8mcjl"]
-background_mode = 2
-sky = SubResource("Sky_q5htx")
 
 [node name="Node3D" type="Node3D"]
 
@@ -157,12 +148,9 @@ skeleton = NodePath("../CollisionShape3D")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.03471, 2.20573, -1.10254)
 size = Vector3(0.306152, 1.95593, 3.20508)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_8mcjl")
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.995757, 0.0134382, 0.0910365, -0.092023, 0.145412, 0.985082, 0, -0.98928, 0.146031, 1.24121, 13.2298, -2.51871)
-light_energy = 16.0
+light_energy = 0.005
 light_indirect_energy = 6.585
 light_volumetric_fog_energy = 3.717
 
