@@ -1,14 +1,23 @@
-[gd_scene load_steps=16 format=3 uid="uid://bw7hpfcvakht8"]
+[gd_scene load_steps=25 format=3 uid="uid://bw7hpfcvakht8"]
 
 [ext_resource type="PackedScene" uid="uid://bgkc0hu54tuoo" path="res://player.tscn" id="1_rltks"]
 [ext_resource type="Script" path="res://csg_box_3d.gd" id="2_c1g2k"]
 [ext_resource type="AudioStream" uid="uid://bghwhoeafxupm" path="res://breath-in-242641.mp3" id="2_twlm6"]
 [ext_resource type="Script" path="res://static_body_3d.gd" id="4_bwoes"]
+[ext_resource type="PackedScene" uid="uid://cpvh88o7pnsql" path="res://FreeBedroomProps/FreeBedroomProps/Assets/FBX/Mirror.fbx" id="4_lvqsw"]
 [ext_resource type="PackedScene" uid="uid://qpm7ku023t3w" path="res://FreeBedroomProps/FreeBedroomProps/Assets/FBX/Bed.fbx" id="5_85m3n"]
-[ext_resource type="PackedScene" uid="uid://baflvw5a2t2q5" path="res://FreeBedroomProps/FreeBedroomProps/Assets/FBX/ExtraBlanket.fbx" id="6_igd4s"]
+[ext_resource type="PackedScene" uid="uid://b0sxv1mqupk16" path="res://FreeLivingRoomProps/FreeLivingRoomProps/Assets/FBX/CabinetUnderTV.fbx" id="8_8ybfd"]
+[ext_resource type="PackedScene" uid="uid://bgfq3kaixfwu7" path="res://FreeBedroomProps/FreeBedroomProps/Assets/FBX/Dresser.fbx" id="8_bxgag"]
+[ext_resource type="PackedScene" uid="uid://ck3f7v84upjr8" path="res://FreeLivingRoomProps/FreeLivingRoomProps/Assets/FBX/CoffeeTable.fbx" id="9_ioxgj"]
+[ext_resource type="PackedScene" uid="uid://p46gkfvmnk26" path="res://FreeLivingRoomProps/FreeLivingRoomProps/Assets/FBX/DoubleWindowWall.fbx" id="10_uwpa6"]
+[ext_resource type="PackedScene" uid="uid://cd8r2lcmlqpwm" path="res://FreeLivingRoomProps/FreeLivingRoomProps/Assets/FBX/FloorTile.fbx" id="11_5kyoy"]
+[ext_resource type="PackedScene" uid="uid://1ka3k0pxgc67" path="res://FreeLivingRoomProps/FreeLivingRoomProps/Assets/FBX/LongCabinet.fbx" id="12_xh3lg"]
+[ext_resource type="PackedScene" uid="uid://ctp1b27atbh5r" path="res://FreeLivingRoomProps/FreeLivingRoomProps/Assets/FBX/Shelf.fbx" id="13_wbpqs"]
+[ext_resource type="PackedScene" uid="uid://b2ruyt1qovajo" path="res://FreeLivingRoomProps/FreeLivingRoomProps/Assets/FBX/Sofa.fbx" id="14_4wlgb"]
+[ext_resource type="PackedScene" uid="uid://bfp3wi8ai6i75" path="res://FreeLivingRoomProps/FreeLivingRoomProps/Assets/FBX/Rug.fbx" id="15_1lcmd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_77hj7"]
-albedo_color = Color(0.331098, 0.247018, 0.109262, 1)
+albedo_color = Color(0.347817, 0.347817, 0.347816, 0.388235)
 emission = Color(0.477243, 0.610111, 0.486545, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ri4kk"]
@@ -35,7 +44,7 @@ size = Vector2(5, 5)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.00249, -3.76143, 2.80848)
 
 [node name="base 3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(10, 0, 0, 0, 3, 0, 0, 0, 10, 4.74799, 0.131689, 1.20793)
+transform = Transform3D(10, 0, 0, 0, 3, 0, 0, 0, 10, 15.0786, 0.131689, 1.20793)
 material_override = SubResource("StandardMaterial3D_77hj7")
 gi_lightmap_scale = 2
 mesh = SubResource("PlaneMesh_ggcsi")
@@ -43,6 +52,23 @@ surface_material_override/0 = SubResource("ShaderMaterial_kaa5j")
 
 [node name="global colision" type="CSGCombiner3D" parent="."]
 use_collision = true
+
+[node name="SpotLight3D" type="SpotLight3D" parent="global colision"]
+transform = Transform3D(1, 0, 0, 0, 0.0305559, 0.999533, 0, -0.999533, 0.0305559, 0, 16.5129, 0)
+light_color = Color(0.496741, 0.480343, 0.449007, 1)
+light_indirect_energy = 3.717
+spot_range = 25.1993
+spot_angle = 23.9062
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="global colision"]
+transform = Transform3D(-0.750106, 0.106903, -0.65262, -0.641402, 0.122758, 0.757321, 0.161074, 0.986662, -0.0235135, -11.7618, 18.6142, -3.99012)
+light_color = Color(0.98488, 0.980271, 0.985302, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_size = 1.0
+spot_range = 87.5844
+spot_angle = 63.1583
 
 [node name="CSGBox3D" type="CSGBox3D" parent="global colision"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.41789, -0.0317383, -1.49778)
@@ -64,17 +90,9 @@ size = Vector3(0.215, 14.412, 25.6995)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.97504, 7.14948, -0.311876)
 size = Vector3(0.215, 14.42, 40)
 
-[node name="CSGBox3D6" type="CSGBox3D" parent="global colision"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.6395, 7.07899, 4.38684)
-size = Vector3(0.215, 14.412, 30)
-
 [node name="CSGBox3D7" type="CSGBox3D" parent="global colision"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.2703, 7.01663, -10.4837)
 size = Vector3(21.0116, 14.742, 0.225)
-
-[node name="CSGBox3D7" type="CSGBox3D" parent="global colision/CSGBox3D7"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.12, -0.126444, 2.03492)
-size = Vector3(12.3085, 14.742, 0.225)
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="global colision"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.82698, 6.90812, 9.14359)
@@ -126,6 +144,10 @@ size = Vector3(0.597554, 3.06406, 1.85803)
 
 [node name="cuisine_sallemanger" type="CSGCombiner3D" parent="global colision"]
 
+[node name="CSGBox3D12" type="CSGBox3D" parent="global colision/cuisine_sallemanger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8497, 6.89019, -8.44878)
+size = Vector3(12.3085, 14.742, 0.225)
+
 [node name="CSGBox3D15" type="CSGBox3D" parent="global colision/cuisine_sallemanger"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.83381, 6.93938, 5.41383)
 size = Vector3(12.3793, 14.5938, 0.224731)
@@ -145,9 +167,53 @@ operation = 2
 size = Vector3(0.597554, 2.89158, 1.7439)
 
 [node name="CSGBox3D14" type="CSGBox3D" parent="global colision/cuisine_sallemanger"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.3177, 1.97203, -1.75872)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.75286, 1.97365, -8.37339)
 operation = 2
-size = Vector3(0.597554, 2.58687, 1.7439)
+size = Vector3(1.02436, 3.66245, 2.83008)
+
+[node name="chambre" type="CSGCombiner3D" parent="global colision"]
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="global colision/chambre"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.6395, 7.07899, 4.38684)
+size = Vector3(0.215, 14.412, 30)
+
+[node name="Bed" parent="global colision/chambre" instance=ExtResource("5_85m3n")]
+transform = Transform3D(2.75, 0, 0, 0, 2.75, 0, 0, 0, 2.75, 21.0437, 0.00488281, -7.54442)
+
+[node name="Dresser2" parent="global colision/chambre" instance=ExtResource("8_bxgag")]
+transform = Transform3D(-2.5, 0, -2.18557e-07, 0, 2.5, 0, 2.18557e-07, 0, -2.5, 19.9032, 0.0170932, 4.48244)
+
+[node name="Dresser" parent="global colision/chambre" instance=ExtResource("8_bxgag")]
+transform = Transform3D(-2.5, 0, -2.18557e-07, 0, 2.5, 0, 2.18557e-07, 0, -2.5, 22.7204, 0.00488377, 4.48334)
+
+[node name="window" type="CSGBox3D" parent="global colision/chambre"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5499, 11.315, -1.15289)
+operation = 2
+size = Vector3(0.964119, 2.0473, 3.30579)
+
+[node name="Mirror" parent="global colision/chambre" instance=ExtResource("4_lvqsw")]
+transform = Transform3D(-3, 0, -1.50996e-07, 0, 2, 0, 4.52987e-07, 0, -1, 21.2878, 5.3911, 5.29655)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="global colision/chambre"]
+transform = Transform3D(-0.960025, 0.275871, -0.0473983, -2.82767e-08, 0.169332, 0.985559, 0.279913, 0.946162, -0.162563, 4.01783, 33.0948, -10.7301)
+light_color = Color(0.98488, 0.980271, 0.985302, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_size = 1.0
+spot_range = 87.5844
+spot_angle = 63.1583
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="global colision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.97059, 2.09369, -1.29712)
+operation = 2
+size = Vector3(0.403534, 5.18738, 3.59424)
+
+[node name="jardin" type="CSGCombiner3D" parent="global colision"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="global colision/jardin"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.9008, 0.040152, 0.686844)
+size = Vector3(26.2494, 0.0732422, 51.3659)
 
 [node name="audio box" type="CSGBox3D" parent="."]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 6.54908, 0.945488, 0)
@@ -186,23 +252,79 @@ skin = SubResource("Skin_sa10h")
 skeleton = NodePath("../CollisionShape3D")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.995757, 0.0134382, 0.0910365, -0.092023, 0.145412, 0.985082, 0, -0.98928, 0.146031, 1.24121, 13.2298, -2.51871)
+transform = Transform3D(0.995757, 0.0134383, 0.0910365, -0.092023, 0.145412, 0.985082, 0, -0.98928, 0.146032, 8.949, 13.2298, -2.51871)
 light_color = Color(0.47788, 0.47788, 0.47788, 1)
 light_energy = 16.0
 light_indirect_energy = 6.585
 light_volumetric_fog_energy = 3.717
 
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.0305559, 0.999533, 0, -0.999533, 0.0305559, 0, 16.5129, 0)
-light_color = Color(0.496741, 0.480343, 0.449007, 1)
-light_indirect_energy = 3.717
-spot_range = 25.1993
-spot_angle = 23.9062
+[node name="CabinetUnderTV" parent="." instance=ExtResource("8_8ybfd")]
+transform = Transform3D(-8.74228e-08, 0, -1, 0, 1, 0, 2, 0, -4.37114e-08, 13.2414, 0.168464, -6.24883)
 
-[node name="Bed" parent="." instance=ExtResource("5_85m3n")]
-transform = Transform3D(2.75, 0, 0, 0, 2.75, 0, 0, 0, 2.75, 21.0437, 0.00488281, -7.54442)
+[node name="CSGBox3D" type="CSGBox3D" parent="CabinetUnderTV"]
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 1, 0, -1, 0, -4.37114e-08, -0.00828767, 0.745596, -0.222015)
+visible = false
+use_collision = true
+size = Vector3(0.799706, 0.130554, 4.3374)
 
-[node name="ExtraBlanket" parent="." instance=ExtResource("6_igd4s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.2661, 0.00488281, -3.77363)
+[node name="CoffeeTable" parent="." instance=ExtResource("9_ioxgj")]
+transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 3, 10.913, 0.106519, -5.77158)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CoffeeTable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.020339, 0.0440063, 0.00476074)
+visible = false
+use_collision = true
+size = Vector3(2.03006, 1.08801, 0.797607)
+
+[node name="DoubleWindowWall" parent="." instance=ExtResource("10_uwpa6")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 27.532, 4.07053, -1.0627)
+
+[node name="FloorTile" parent="." instance=ExtResource("11_5kyoy")]
+transform = Transform3D(7, 0, 0, 0, 1, 0, 0, 0, 8, 20.8844, 0.13958, -2.76865)
+
+[node name="LongCabinet" parent="." instance=ExtResource("12_xh3lg")]
+transform = Transform3D(-6.11959e-08, 0, -1, 0, 1, 0, 1.4, 0, -4.37114e-08, 13.3262, 0.00488377, -9.41194)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="LongCabinet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0184021, 1.3717, -0.0577087)
+visible = false
+use_collision = true
+size = Vector3(1.45367, 2.51929, 0.49408)
+
+[node name="LongCabinet2" parent="." instance=ExtResource("12_xh3lg")]
+transform = Transform3D(-6.11959e-08, 0, -1, 0, 1, 0, 1.4, 0, -4.37114e-08, 13.3209, 0.00488234, -3.16391)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="LongCabinet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0135951, 1.36651, -0.00219154)
+visible = false
+use_collision = true
+size = Vector3(1.42603, 2.46613, 0.453613)
+
+[node name="CoffeeTable2" parent="." instance=ExtResource("9_ioxgj")]
+transform = Transform3D(-1.04907e-07, 0, -0.5, 0, 0.2, 0, 2.4, 0, -2.18557e-08, 13.3792, 2.49346, -6.25841)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CoffeeTable2"]
+transform = Transform3D(1, 0, 8.88178e-16, 0, 1, 0, 0, 0, 1, -0.00291348, 0.569983, -0.00875854)
+visible = false
+use_collision = true
+size = Vector3(3.40402, 0.0825043, 0.841858)
+
+[node name="Shelf" parent="." instance=ExtResource("13_wbpqs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0498, 2.0377, -10.3637)
+
+[node name="Shelf2" parent="." instance=ExtResource("13_wbpqs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.068, 1.73661, -10.3645)
+
+[node name="Sofa" parent="." instance=ExtResource("14_4wlgb")]
+transform = Transform3D(-6.55671e-08, 0, 1, 0, 1, 0, -1.5, 0, -4.37114e-08, 8.94256, 0.00488257, -5.70252)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Sofa"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00961304, 0.281067, -0.519775)
+visible = false
+use_collision = true
+size = Vector3(3.01117, 1.56213, 0.208008)
+
+[node name="Rug" parent="." instance=ExtResource("15_1lcmd")]
+transform = Transform3D(-0.0374914, 0, 2.9996, 0, 1, 0, -2.29969, 0, -0.0489018, 10.4581, 0.126145, -5.4943)
 
 [connection signal="finished" from="audio box/AudioStreamPlayer3D" to="audio box" method="_on_audio_stream_player_3d_finished"]
