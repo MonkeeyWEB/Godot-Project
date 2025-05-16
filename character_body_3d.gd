@@ -1,7 +1,9 @@
 extends CharacterBody3D
-class_name Fuyard
+class_name Player
 
-signal interact_object
+
+
+
 
 @onready var audio_stream_player_3d: AudioStreamPlayer3D = $CSGBox3D/AudioStreamPlayer3D
 @onready var bruits_pas: AudioStreamPlayer3D = $"bruits pas"
@@ -23,7 +25,7 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
+	
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
@@ -45,25 +47,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	
+	
 
-	# pick-up
-
-	
-var picked0bject
-func pick_up(object):
-	
-	object.reparent(self)
-	#object.global_position = %CarryObjectMarker.global_position
-	
-	await get_tree().create_timer(0.1).timeout
-	picked0bject= object
-	
-	
-func _process(delta):
-	if hand.is_colliding():
-		var collider = hand.get_collider()
-		interact_object.emit(collider)
-	else : interact_object.emit(null)
 		
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -72,12 +57,6 @@ func _input(event):
 		#Horizontal
 		rotation.y -= event.relative.x * CAMERA_SENS
 		#Vertical
-		#rotation.x -= event.relative.y * CAMERA_SENS
-	if event.is_action_pressed("interaction") and picked0bject:
-		picked0bject.reparent(get_tree().current_scene)
-		picked0bject=null 
-		#si on appuie sur la touche interaction et qu'un objet est attrapé, on le remet dans la scene et on l'oublie de notre inventaire 
+		
 
-	if event.is_action_pressed("interaction") and picked0bject:
-		picked0bject.reparent(get_tree().current_scene)
-		picked0bject = null
+	

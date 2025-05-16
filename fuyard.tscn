@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bwijrdhrwtcfr"]
 
-[ext_resource type="Script" path="res://character_body_3d.gd" id="1_qawyk"]
+[ext_resource type="Script" path="res://Fuyard.gd" id="1_frtq0"]
 [ext_resource type="AudioStream" uid="uid://dntcgskbnabqg" path="res://Projet sans titre.mp3" id="2_pctor"]
 [ext_resource type="PackedScene" uid="uid://bcpmer4dnp4w1" path="res://survivantskin.tscn" id="3_0jv2y"]
 
@@ -9,11 +9,10 @@
 [node name="fuyard" type="Node3D"]
 
 [node name="fuyards" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 89.142)
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="fuyards"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.58008, 0)
-script = ExtResource("1_qawyk")
+script = ExtResource("1_frtq0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="fuyards/CharacterBody3D"]
 shape = SubResource("CapsuleShape3D_jmw0e")
@@ -31,6 +30,7 @@ spot_range = 25.1993
 spot_angle = 23.9062
 
 [node name="Camera3D" type="Camera3D" parent="fuyards/CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.413313, 0)
 
 [node name="hand" type="RayCast3D" parent="fuyards/CharacterBody3D/Camera3D"]
 transform = Transform3D(0.983562, 0.180571, -7.89299e-09, -6.12027e-16, -4.37114e-08, -1, -0.180571, 0.983562, -4.29929e-08, -0.237371, -0.131398, 0.222469)
@@ -47,4 +47,5 @@ light_indirect_energy = 3.717
 spot_range = 25.1993
 spot_angle = 23.9062
 
-[node name="characterMedium" parent="." instance=ExtResource("3_0jv2y")]
+[node name="characterMedium" parent="fuyards/CharacterBody3D" instance=ExtResource("3_0jv2y")]
+transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, 0, -1.12049, 0.019619)

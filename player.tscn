@@ -22,6 +22,9 @@ shape = SubResource("BoxShape3D_lpqks")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.58008, 0)
 script = ExtResource("1_ux3au")
 
+[node name="hand" type="RayCast3D" parent="chercheur/CharacterBody3D"]
+transform = Transform3D(0.983562, 0.180571, -7.89299e-09, -0.0163782, 0.0892111, -0.995878, -0.179827, 0.979508, 0.0907021, -0.237371, 0.602944, -0.0271244)
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="chercheur/CharacterBody3D"]
 shape = SubResource("CapsuleShape3D_8x2on")
 
@@ -32,9 +35,6 @@ max_distance = 73.14
 
 [node name="Camera3D" type="Camera3D" parent="chercheur/CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 0.995878, 0.0907021, 0, -0.0907021, 0.995878, 0, 0.713622, -0.260594)
-
-[node name="hand" type="RayCast3D" parent="chercheur/CharacterBody3D/Camera3D"]
-transform = Transform3D(0.983562, 0.180571, -7.89299e-09, -6.12027e-16, -4.37114e-08, -1, -0.180571, 0.983562, -4.29929e-08, -0.237371, -0.131398, 0.222469)
 
 [node name="ColorRect" type="ColorRect" parent="chercheur/CharacterBody3D/Camera3D"]
 anchors_preset = 15

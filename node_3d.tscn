@@ -1,6 +1,6 @@
-[gd_scene load_steps=25 format=3 uid="uid://bw7hpfcvakht8"]
+[gd_scene load_steps=26 format=3 uid="uid://bw7hpfcvakht8"]
 
-[ext_resource type="PackedScene" uid="uid://bgkc0hu54tuoo" path="res://player.tscn" id="1_rltks"]
+[ext_resource type="Script" path="res://node_3d.gd" id="1_fft02"]
 [ext_resource type="Script" path="res://csg_box_3d.gd" id="2_c1g2k"]
 [ext_resource type="AudioStream" uid="uid://bghwhoeafxupm" path="res://breath-in-242641.mp3" id="2_twlm6"]
 [ext_resource type="Script" path="res://static_body_3d.gd" id="4_bwoes"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://ctp1b27atbh5r" path="res://FreeLivingRoomProps/FreeLivingRoomProps/Assets/FBX/Shelf.fbx" id="13_wbpqs"]
 [ext_resource type="PackedScene" uid="uid://b2ruyt1qovajo" path="res://FreeLivingRoomProps/FreeLivingRoomProps/Assets/FBX/Sofa.fbx" id="14_4wlgb"]
 [ext_resource type="PackedScene" uid="uid://bfp3wi8ai6i75" path="res://FreeLivingRoomProps/FreeLivingRoomProps/Assets/FBX/Rug.fbx" id="15_1lcmd"]
+[ext_resource type="PackedScene" uid="uid://bwijrdhrwtcfr" path="res://fuyard.tscn" id="16_eaetb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_77hj7"]
 albedo_color = Color(0.347817, 0.347817, 0.347816, 0.388235)
@@ -39,9 +40,7 @@ size = Vector2(5, 5)
 [sub_resource type="Skin" id="Skin_sa10h"]
 
 [node name="Node3D" type="Node3D"]
-
-[node name="Player" parent="." instance=ExtResource("1_rltks")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.00249, -3.76143, 2.80848)
+script = ExtResource("1_fft02")
 
 [node name="base 3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, 3, 0, 0, 0, 10, 15.0786, 0.131689, 1.20793)
@@ -332,5 +331,10 @@ size = Vector3(3.26392, 1, 1)
 
 [node name="Rug" parent="." instance=ExtResource("15_1lcmd")]
 transform = Transform3D(-0.0374914, 0, 2.9996, 0, 1, 0, -2.29969, 0, -0.0489018, 10.4581, 0.126145, -5.4943)
+
+[node name="Spawn" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.62818, 0)
+
+[node name="fuyard" parent="." instance=ExtResource("16_eaetb")]
 
 [connection signal="finished" from="audio box/AudioStreamPlayer3D" to="audio box" method="_on_audio_stream_player_3d_finished"]
