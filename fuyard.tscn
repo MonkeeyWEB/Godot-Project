@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bwijrdhrwtcfr"]
+[gd_scene load_steps=5 format=3 uid="uid://bwijrdhrwtcfr"]
 
 [ext_resource type="Script" path="res://character_body_3d.gd" id="1_qawyk"]
 [ext_resource type="AudioStream" uid="uid://dntcgskbnabqg" path="res://Projet sans titre.mp3" id="2_pctor"]
+[ext_resource type="PackedScene" uid="uid://bcpmer4dnp4w1" path="res://survivantskin.tscn" id="3_0jv2y"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jmw0e"]
 
@@ -45,3 +46,5 @@ light_color = Color(0.496741, 0.480343, 0.449007, 1)
 light_indirect_energy = 3.717
 spot_range = 25.1993
 spot_angle = 23.9062
+
+[node name="characterMedium" parent="." instance=ExtResource("3_0jv2y")]

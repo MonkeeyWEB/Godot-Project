@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5kqycv7grit7"]
+
+[ext_resource type="PackedScene" uid="uid://e4x5yywouas" path="res://kenney_animated-characters-2/Model/characterMedium.fbx" id="1_tu6ir"]
+
+[node name="characterMedium" instance=ExtResource("1_tu6ir")]

@@ -324,6 +324,12 @@ visible = false
 use_collision = true
 size = Vector3(3.01117, 1.56213, 0.208008)
 
+[node name="CSGBox3D" type="CSGBox3D" parent="Sofa"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 1.12266e-12, 0, 1, -0.00524902, 0, 0)
+visible = false
+use_collision = true
+size = Vector3(3.26392, 1, 1)
+
 [node name="Rug" parent="." instance=ExtResource("15_1lcmd")]
 transform = Transform3D(-0.0374914, 0, 2.9996, 0, 1, 0, -2.29969, 0, -0.0489018, 10.4581, 0.126145, -5.4943)
 
