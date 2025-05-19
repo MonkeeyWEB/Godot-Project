@@ -8,6 +8,9 @@ albedo_texture = ExtResource("2_bewt7")
 
 [node name="characterMedium" instance=ExtResource("1_5qymb")]
 
+[node name="Skeleton3D" parent="Root" index="0"]
+bones/27/rotation = Quaternion(-0.299525, 2.00048, -1.19953, 0.699475)
+
 [node name="characterMedium" parent="Root/Skeleton3D" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_67yny")
 
