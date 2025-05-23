@@ -1,20 +1,13 @@
-<<<<<<< HEAD
 [gd_scene load_steps=5 format=3 uid="uid://bgkc0hu54tuoo"]
 
 [ext_resource type="Script" path="res://character_body_3d.gd" id="1_ux3au"]
 [ext_resource type="AudioStream" uid="uid://dntcgskbnabqg" path="res://Projet sans titre.mp3" id="2_nhk3g"]
 [ext_resource type="PackedScene" uid="uid://b5kqycv7grit7" path="res://mechant.tscn" id="3_46ggk"]
-=======
-[gd_scene load_steps=3 format=3 uid="uid://bgkc0hu54tuoo"]
-
-[ext_resource type="Script" path="res://character_body_3d.gd" id="1_ux3au"]
->>>>>>> main
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8x2on"]
 
 [node name="chercheur" type="Node3D"]
 
-<<<<<<< HEAD
 [node name="chercheur" type="Node3D" parent="."]
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="chercheur"]
@@ -52,15 +45,3 @@ spot_angle = 23.9062
 
 [node name="characterMedium" parent="chercheur/CharacterBody3D" instance=ExtResource("3_46ggk")]
 transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, -0.468272, -0.956352, 0)
-=======
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.58624, 0)
-script = ExtResource("1_ux3au")
-
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0395595, 0.536976, -0.485182)
-fov = 60.0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
-shape = SubResource("CapsuleShape3D_8x2on")
->>>>>>> main
