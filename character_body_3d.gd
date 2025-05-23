@@ -18,7 +18,7 @@ const CAMERA_SENS = 0.005
 func _ready() -> void:
 	# Initialise le mode de camera à la première personne
 	add_to_group("player")
-	Input .mouse_mode = Input.MOUSE_MODE_CAPTURED
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 
 func _physics_process(delta: float) -> void:

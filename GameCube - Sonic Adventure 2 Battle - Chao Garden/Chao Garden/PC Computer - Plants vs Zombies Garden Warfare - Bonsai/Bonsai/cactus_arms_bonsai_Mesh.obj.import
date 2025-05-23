@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bbf8cblhe5kxr"
+path="res://.godot/imported/cactus_arms_bonsai_Mesh.obj-f8aad03ac6834d2137b5dc9a94e6b97d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/cactus_arms_bonsai_Mesh.obj-f8aad03ac6834d2137b5dc9a94e6b97d.mesh"]
+
+source_file="res://GameCube - Sonic Adventure 2 Battle - Chao Garden/Chao Garden/PC Computer - Plants vs Zombies Garden Warfare - Bonsai/Bonsai/cactus_arms_bonsai_Mesh.obj"
+dest_files=["res://.godot/imported/cactus_arms_bonsai_Mesh.obj-f8aad03ac6834d2137b5dc9a94e6b97d.mesh", "res://.godot/imported/cactus_arms_bonsai_Mesh.obj-f8aad03ac6834d2137b5dc9a94e6b97d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

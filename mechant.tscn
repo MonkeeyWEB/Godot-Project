@@ -8,5 +8,21 @@ albedo_texture = ExtResource("2_wb6g8")
 
 [node name="characterMedium" instance=ExtResource("1_tu6ir")]
 
+[node name="Skeleton3D" parent="Root" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, -2.84217e-14, 0, 2.84217e-14, 1, -0.00906811, -0.00115306, 0.000577221)
+bones/26/rotation = Quaternion(0.586475, 0.410475, 0.570475, -0.431525)
+bones/27/rotation = Quaternion(-0.299525, 2.00048, -1.19953, 0.699475)
+bones/28/rotation = Quaternion(0.080475, -0.299525, 0.00547497, 0.998475)
+bones/38/rotation = Quaternion(-0.000525026, 0.964475, 0.604475, -0.241525)
+bones/39/rotation = Quaternion(0.000474975, -0.00452503, 0.200475, 0.998475)
+
 [node name="characterMedium" parent="Root/Skeleton3D" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_8lay4")
+
+[node name="StaticBody3D" parent="Root/Skeleton3D/characterMedium" index="0"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape3D" parent="Root/Skeleton3D/characterMedium/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, -7.10543e-15, 0, 7.10543e-15, 1, 0, 0, 0)
+disabled = true

@@ -17,3 +17,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_67yny")
 [node name="StaticBody3D" parent="Root/Skeleton3D/characterMedium" index="0"]
 collision_layer = 0
 collision_mask = 0
+
+[node name="CollisionShape3D" parent="Root/Skeleton3D/characterMedium/StaticBody3D" index="0"]
+disabled = true

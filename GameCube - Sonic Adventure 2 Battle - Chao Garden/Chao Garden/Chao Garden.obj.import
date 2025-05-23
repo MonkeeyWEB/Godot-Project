@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ht0260rvgymt"
+path="res://.godot/imported/Chao Garden.obj-708b1f1a5e3fa26d46e2ad82bd38ef0c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Chao Garden.obj-708b1f1a5e3fa26d46e2ad82bd38ef0c.mesh"]
+
+source_file="res://GameCube - Sonic Adventure 2 Battle - Chao Garden/Chao Garden/Chao Garden.obj"
+dest_files=["res://.godot/imported/Chao Garden.obj-708b1f1a5e3fa26d46e2ad82bd38ef0c.mesh", "res://.godot/imported/Chao Garden.obj-708b1f1a5e3fa26d46e2ad82bd38ef0c.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

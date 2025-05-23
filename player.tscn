@@ -1,20 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://bgkc0hu54tuoo"]
+[gd_scene load_steps=5 format=3 uid="uid://bgkc0hu54tuoo"]
 
 [ext_resource type="Script" path="res://character_body_3d.gd" id="1_ux3au"]
 [ext_resource type="AudioStream" uid="uid://dntcgskbnabqg" path="res://Projet sans titre.mp3" id="2_nhk3g"]
-[ext_resource type="PackedScene" uid="uid://bcpmer4dnp4w1" path="res://survivantskin.tscn" id="3_8jqow"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_lpqks"]
+[ext_resource type="PackedScene" uid="uid://b5kqycv7grit7" path="res://mechant.tscn" id="3_46ggk"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8x2on"]
 
 [node name="chercheur" type="Node3D"]
-
-[node name="poulet" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 3.39342e-16, 0, 1, 0, 3.39342e-16, 0, 1, 2.98023e-08, 4.58008, 1.49012e-08)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="poulet"]
-shape = SubResource("BoxShape3D_lpqks")
 
 [node name="chercheur" type="Node3D" parent="."]
 
@@ -34,7 +26,7 @@ volume_db = 50.0
 max_distance = 73.14
 
 [node name="Camera3D" type="Camera3D" parent="chercheur/CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 0.995878, 0.0907021, 0, -0.0907021, 0.995878, 0, 0.713622, -0.260594)
+transform = Transform3D(1, 0, 0, 0, 0.995878, 0.0907021, 0, -0.0907021, 0.995878, 0, 0.713622, -0.205354)
 
 [node name="ColorRect" type="ColorRect" parent="chercheur/CharacterBody3D/Camera3D"]
 anchors_preset = 15
@@ -51,5 +43,5 @@ light_indirect_energy = 3.717
 spot_range = 25.1993
 spot_angle = 23.9062
 
-[node name="characterMedium" parent="chercheur/CharacterBody3D" instance=ExtResource("3_8jqow")]
-transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, 0, -0.840527, 0)
+[node name="characterMedium" parent="chercheur/CharacterBody3D" instance=ExtResource("3_46ggk")]
+transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, -0.468272, -0.956352, 0)

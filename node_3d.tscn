@@ -1,10 +1,11 @@
-[gd_scene load_steps=26 format=3 uid="uid://bw7hpfcvakht8"]
+[gd_scene load_steps=27 format=3 uid="uid://bw7hpfcvakht8"]
 
 [ext_resource type="Script" path="res://node_3d.gd" id="1_fft02"]
 [ext_resource type="Script" path="res://csg_box_3d.gd" id="2_c1g2k"]
 [ext_resource type="AudioStream" uid="uid://bghwhoeafxupm" path="res://breath-in-242641.mp3" id="2_twlm6"]
 [ext_resource type="Script" path="res://static_body_3d.gd" id="4_bwoes"]
 [ext_resource type="PackedScene" uid="uid://cpvh88o7pnsql" path="res://FreeBedroomProps/FreeBedroomProps/Assets/FBX/Mirror.fbx" id="4_lvqsw"]
+[ext_resource type="ArrayMesh" uid="uid://ht0260rvgymt" path="res://GameCube - Sonic Adventure 2 Battle - Chao Garden/Chao Garden/Chao Garden.obj" id="5_0rhw3"]
 [ext_resource type="PackedScene" uid="uid://qpm7ku023t3w" path="res://FreeBedroomProps/FreeBedroomProps/Assets/FBX/Bed.fbx" id="5_85m3n"]
 [ext_resource type="PackedScene" uid="uid://b0sxv1mqupk16" path="res://FreeLivingRoomProps/FreeLivingRoomProps/Assets/FBX/CabinetUnderTV.fbx" id="8_8ybfd"]
 [ext_resource type="PackedScene" uid="uid://bgfq3kaixfwu7" path="res://FreeBedroomProps/FreeBedroomProps/Assets/FBX/Dresser.fbx" id="8_bxgag"]
@@ -15,7 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://ctp1b27atbh5r" path="res://FreeLivingRoomProps/FreeLivingRoomProps/Assets/FBX/Shelf.fbx" id="13_wbpqs"]
 [ext_resource type="PackedScene" uid="uid://b2ruyt1qovajo" path="res://FreeLivingRoomProps/FreeLivingRoomProps/Assets/FBX/Sofa.fbx" id="14_4wlgb"]
 [ext_resource type="PackedScene" uid="uid://bfp3wi8ai6i75" path="res://FreeLivingRoomProps/FreeLivingRoomProps/Assets/FBX/Rug.fbx" id="15_1lcmd"]
-[ext_resource type="PackedScene" uid="uid://bwijrdhrwtcfr" path="res://fuyard.tscn" id="16_eaetb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_77hj7"]
 albedo_color = Color(0.347817, 0.347817, 0.347816, 0.388235)
@@ -28,6 +28,8 @@ material = SubResource("StandardMaterial3D_ri4kk")
 size = Vector2(5, 5)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kaa5j"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_on5wr"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_dsqnt"]
 
@@ -211,8 +213,15 @@ size = Vector3(0.403534, 5.18738, 3.59424)
 [node name="jardin" type="CSGCombiner3D" parent="global colision"]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="global colision/jardin"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.9008, 0.040152, 0.686844)
-size = Vector3(26.2494, 0.0732422, 51.3659)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.9576, 0.040152, 3.50803)
+visible = false
+size = Vector3(44.363, 0.0732422, 57.0083)
+material = SubResource("StandardMaterial3D_on5wr")
+
+[node name="ChaoGarden" type="MeshInstance3D" parent="global colision/jardin"]
+transform = Transform3D(-0.0328305, 0, 0.197287, 0, 0.2, 0, -0.197287, 0, -0.0328305, -15.0737, -1.99279, -1.49358)
+mesh = ExtResource("5_0rhw3")
+skeleton = NodePath("../..")
 
 [node name="audio box" type="CSGBox3D" parent="."]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 6.54908, 0.945488, 0)
@@ -334,7 +343,5 @@ transform = Transform3D(-0.0374914, 0, 2.9996, 0, 1, 0, -2.29969, 0, -0.0489018,
 
 [node name="Spawn" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.62818, 0)
-
-[node name="fuyard" parent="." instance=ExtResource("16_eaetb")]
 
 [connection signal="finished" from="audio box/AudioStreamPlayer3D" to="audio box" method="_on_audio_stream_player_3d_finished"]
