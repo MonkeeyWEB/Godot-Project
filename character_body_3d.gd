@@ -1,14 +1,21 @@
 extends CharacterBody3D
+<<<<<<< HEAD
 class_name Player
 
 
 
 
+=======
+
+@onready var camera_3d: Camera3D = $Camera3D
+const CAMERA_SENS = 0.005
+>>>>>>> main
 
 @onready var audio_stream_player_3d: AudioStreamPlayer3D = $CSGBox3D/AudioStreamPlayer3D
 @onready var bruits_pas: AudioStreamPlayer3D = $"bruits pas"
 @onready var camera_3d: Camera3D = $Camera3D
 @onready var hand: RayCast3D = $Camera3D/hand
+
 
 
 const SPEED = 5.0
@@ -20,6 +27,9 @@ func _ready() -> void:
 	add_to_group("player")
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
+func _ready() -> void:
+	#Initialise le mode de caméra à la Premiere Personne
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -45,11 +55,16 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+<<<<<<< HEAD
 	
 	
 	
 
 		
+=======
+
+#Camera
+>>>>>>> main
 func _input(event):
 	if event is InputEventMouseMotion:
 		print("y : ",event.relative.x * CAMERA_SENS)
@@ -57,6 +72,11 @@ func _input(event):
 		#Horizontal
 		rotation.y -= event.relative.x * CAMERA_SENS
 		#Vertical
+<<<<<<< HEAD
 		
 
 	
+=======
+		#rotation.x -= event.relative.y * CAMERA_SENS
+		
+>>>>>>> main
